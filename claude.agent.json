@@ -1,0 +1,38 @@
+{
+  "schema_version": "v1",
+  "name": "SecureNote Agent",
+  "description": "An agent that encrypts, decrypts, and emails notes securely",
+  "entry_point": "main.py",
+  "runtime": "mcp",
+  "api": {
+    "type": "mcp",
+    "url": "http://localhost:8000/mcp/openapi.json"
+  },
+  "tools": [
+    {
+      "name": "encrypt_note",
+      "description": "Encrypt text using Caesar cipher",
+      "parameters": {
+        "text": "string",
+        "shift": "integer"
+      }
+    },
+    {
+      "name": "decrypt_note",
+      "description": "Decrypt Caesar cipher text",
+      "parameters": {
+        "cipher": "string",
+        "shift": "integer"
+      }
+    },
+    {
+      "name": "send_note",
+      "description": "Send a text note via email using SMTP",
+      "parameters": {
+        "to": "string",
+        "subject": "string",
+        "body": "string"
+      }
+    }
+  ]
+}
